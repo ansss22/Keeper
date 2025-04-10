@@ -1,0 +1,321 @@
+var _Object$keys = require('babel-runtime/core-js/object/keys')['default'];
+
+var _Object$assign = require('babel-runtime/core-js/object/assign')['default'];
+
+(function (factory) {
+  !(typeof exports === 'object' && typeof module !== 'undefined') && typeof define === 'function' && define.amd ? define(factory) : factory();
+})(function () {
+  'use strict';
+
+  var utils = {
+    range: function range(num) {
+      var array = [];
+      for (var i = 0; i < num; i++) {
+        array.push(i);
+      }
+      return array;
+    },
+
+    capitalize: function capitalize(str) {
+      return str && str.charAt(0).toUpperCase() + str.substring(1);
+    },
+
+    includes: function includes(obj, search) {
+      if (typeof obj === 'number') {
+        obj = obj.toString();
+      }
+      return obj.indexOf(search) !== -1;
+    },
+
+    values: function values(obj) {
+      return _Object$keys(obj).map(function (key) {
+        return obj[key];
+      });
+    }
+
+  };
+
+  'use strict';
+
+  var capitalize = utils.capitalize;
+  var includes = utils.includes;
+  var values = utils.values;
+
+  var react_inline_auto_prefixer__webkitPrefix = 'Webkit';
+  var react_inline_auto_prefixer__mozPrefix = 'Moz';
+  var react_inline_auto_prefixer__msPrefix = 'ms';
+  var react_inline_auto_prefixer__oPrefix = 'o';
+
+  var react_inline_auto_prefixer__webkit = [react_inline_auto_prefixer__webkitPrefix];
+  var react_inline_auto_prefixer__webkitO = [react_inline_auto_prefixer__webkitPrefix, react_inline_auto_prefixer__oPrefix];
+  var react_inline_auto_prefixer__moz = [react_inline_auto_prefixer__mozPrefix];
+  var react_inline_auto_prefixer__ms = [react_inline_auto_prefixer__msPrefix];
+
+  var react_inline_auto_prefixer__webkitMoz = [react_inline_auto_prefixer__webkitPrefix, react_inline_auto_prefixer__mozPrefix];
+  var react_inline_auto_prefixer__webkitMozO = [react_inline_auto_prefixer__webkitPrefix, react_inline_auto_prefixer__mozPrefix, react_inline_auto_prefixer__oPrefix];
+  var react_inline_auto_prefixer__webkitMozMs = [react_inline_auto_prefixer__webkitPrefix, react_inline_auto_prefixer__mozPrefix, react_inline_auto_prefixer__msPrefix];
+  var react_inline_auto_prefixer__webkitMs = [react_inline_auto_prefixer__webkitPrefix, react_inline_auto_prefixer__msPrefix];
+  var react_inline_auto_prefixer__allPrefixes = [react_inline_auto_prefixer__webkitPrefix, react_inline_auto_prefixer__msPrefix, react_inline_auto_prefixer__mozPrefix, react_inline_auto_prefixer__oPrefix];
+
+  var react_inline_auto_prefixer__neededRules = {
+    alignContent: react_inline_auto_prefixer__webkit,
+    alignItems: react_inline_auto_prefixer__webkit,
+    alignSelf: react_inline_auto_prefixer__webkit,
+    animation: react_inline_auto_prefixer__webkitMoz,
+    animationDelay: react_inline_auto_prefixer__webkitMoz,
+    animationDirection: react_inline_auto_prefixer__webkitMoz,
+    animationDuration: react_inline_auto_prefixer__webkitMoz,
+    animationFillMode: react_inline_auto_prefixer__webkitMoz,
+    animationIterationCount: react_inline_auto_prefixer__webkitMoz,
+    animationName: react_inline_auto_prefixer__webkitMoz,
+    animationPlayState: react_inline_auto_prefixer__webkitMoz,
+    animationTimingFunction: react_inline_auto_prefixer__webkitMoz,
+    appearance: react_inline_auto_prefixer__webkitMoz,
+    backfaceVisibility: react_inline_auto_prefixer__webkitMoz,
+    backgroundClip: react_inline_auto_prefixer__webkit,
+    borderImage: react_inline_auto_prefixer__webkitMozO,
+    borderImageSlice: react_inline_auto_prefixer__webkitMozO,
+    boxShadow: react_inline_auto_prefixer__webkitMozMs,
+    boxSizing: react_inline_auto_prefixer__webkitMoz,
+    clipPath: react_inline_auto_prefixer__webkit,
+    columns: react_inline_auto_prefixer__webkitMoz,
+    cursor: react_inline_auto_prefixer__webkitMoz,
+    flex: react_inline_auto_prefixer__webkitMs, //new flex and 2012 specification , no support for old specification
+    flexBasis: react_inline_auto_prefixer__webkitMs,
+    flexDirection: react_inline_auto_prefixer__webkitMs,
+    flexFlow: react_inline_auto_prefixer__webkitMs,
+    flexGrow: react_inline_auto_prefixer__webkitMs,
+    flexShrink: react_inline_auto_prefixer__webkitMs,
+    flexWrap: react_inline_auto_prefixer__webkitMs,
+    fontSmoothing: react_inline_auto_prefixer__webkitMoz,
+    justifyContent: react_inline_auto_prefixer__webkitMoz,
+    order: react_inline_auto_prefixer__webkitMoz,
+    perspective: react_inline_auto_prefixer__webkitMoz,
+    perspectiveOrigin: react_inline_auto_prefixer__webkitMoz,
+    transform: react_inline_auto_prefixer__webkitMozMs,
+    transformOrigin: react_inline_auto_prefixer__webkitMozMs,
+    transformOriginX: react_inline_auto_prefixer__webkitMozMs,
+    transformOriginY: react_inline_auto_prefixer__webkitMozMs,
+    transformOriginZ: react_inline_auto_prefixer__webkitMozMs,
+    transformStyle: react_inline_auto_prefixer__webkitMozMs,
+    transition: react_inline_auto_prefixer__webkitMozMs,
+    transitionDelay: react_inline_auto_prefixer__webkitMozMs,
+    transitionDuration: react_inline_auto_prefixer__webkitMozMs,
+    transitionProperty: react_inline_auto_prefixer__webkitMozMs,
+    transitionTimingFunction: react_inline_auto_prefixer__webkitMozMs,
+    userSelect: react_inline_auto_prefixer__webkitMozMs
+  };
+
+  var react_inline_auto_prefixer__neededCssValues = {
+    calc: react_inline_auto_prefixer__webkitMoz,
+    flex: react_inline_auto_prefixer__webkitMs
+  };
+
+  var react_inline_auto_prefixer__clientPrefix = (function vendorPrefix() {
+    if (typeof navigator === 'undefined') {
+      //in server rendering
+      return react_inline_auto_prefixer__allPrefixes; //also default when not passing true to 'all vendors' explicitly
+    }
+    var sUsrAg = navigator.userAgent;
+
+    if (includes(sUsrAg, 'Chrome')) {
+      return react_inline_auto_prefixer__webkit;
+    } else if (includes(sUsrAg, 'Safari')) {
+      return react_inline_auto_prefixer__webkit;
+    } else if (includes(sUsrAg, 'Opera')) {
+      return react_inline_auto_prefixer__webkitO;
+    } else if (includes(sUsrAg, 'Firefox')) {
+      return react_inline_auto_prefixer__moz;
+    } else if (includes(sUsrAg, 'MSIE')) {
+      return react_inline_auto_prefixer__ms;
+    }
+
+    return [];
+  })();
+
+  function checkAndAddPrefix(styleObj, key, val, allVendors) {
+    var oldFlex = true;
+    function valueWithPrefix(cssVal, prefix) {
+      return includes(val, cssVal) && (allVendors || includes(react_inline_auto_prefixer__clientPrefix, prefix)) ? val.replace(cssVal, ['', prefix.toLowerCase(), cssVal].join('-')) : null;
+      //example return -> 'transition: -webkit-transition'
+    }
+
+    function createObjectOfValuesWithPrefixes(cssVal) {
+      return react_inline_auto_prefixer__neededCssValues[cssVal].reduce(function (o, v) {
+        o[v.toLowerCase()] = valueWithPrefix(cssVal, v);
+        return o;
+      }, {});
+      //example return -> {webkit: -webkit-calc(10% - 1px), moz: -moz-calc(10% - 1px)}
+    }
+
+    function composePrefixedValues(objOfPrefixedValues) {
+      var composed = values(objOfPrefixedValues).filter(function (str) {
+        return str !== null;
+      }).map(function (str) {
+        return key + ':' + str;
+      }).join(';');
+
+      if (composed) {
+        styleObj[key] = styleObj[key] + ';' + composed;
+      }
+      //example do -> {display: "flex;display:-webkit-flex;display:-ms-flexbox"}
+    }
+
+    function valWithoutFlex() {
+      return val.replace('flex-', '').toLowerCase();
+    }
+
+    if (val === 'flex' && key === 'display') {
+
+      var flex = createObjectOfValuesWithPrefixes('flex');
+      if (flex.ms) {
+        flex.ms = flex.ms.replace('flex', 'flexbox');
+      } //special case
+
+      composePrefixedValues(flex);
+      //if(oldFlex){styleObj[key] = styleObj[key] + ';display:-webkit-box'; }
+      if (oldFlex) {
+        styleObj[key] = '-webkit-box;display:' + styleObj[key];
+      }
+
+      //display:flex is simple case, no need for other checks
+      return styleObj;
+    }
+
+    var allPrefixedCssValues = _Object$keys(react_inline_auto_prefixer__neededCssValues).filter(function (c) {
+      return c !== 'flex';
+    }).reduce(function (o, c) {
+      o[c] = createObjectOfValuesWithPrefixes(c);
+      return o;
+    }, {});
+    /*
+     example allPrefixedCssValues = {
+     calc: {
+     webkit: "translateX(-webkit-calc(10% - 10px))",
+     moz: "translateX(-moz-calc(10% - 10px))"
+     },
+     flex: {
+     ms: null,
+     webkit: null
+     }
+     };*/
+
+    //if(includes(val, 'gradient')){
+    //
+    //}
+
+    if (react_inline_auto_prefixer__neededRules[key]) {
+
+      var prefixes = allVendors ? react_inline_auto_prefixer__neededRules[key] : react_inline_auto_prefixer__neededRules[key].filter(function (vendor) {
+        return includes(react_inline_auto_prefixer__clientPrefix, vendor);
+      });
+
+      var prefixedProperties = prefixes.reduce(function (obj, prefix) {
+        var property = val;
+
+        //add valueWithPrefixes in their position and null the property
+        _Object$keys(allPrefixedCssValues).forEach(function (cssKey) {
+          var cssVal = allPrefixedCssValues[cssKey];
+          _Object$keys(cssVal).forEach(function (vendor) {
+            if (cssVal[vendor] && capitalize(prefix) === capitalize(vendor)) {
+              property = cssVal[vendor];
+              cssVal[vendor] = null;
+            }
+          });
+        });
+
+        obj[prefix + capitalize(key)] = property;
+        return obj;
+      }, {});
+
+      if (oldFlex) {
+        switch (key) {
+          case 'flexDirection':
+            if (includes(val, 'reverse')) {
+              prefixedProperties.WebkitBoxDirection = 'reverse';
+            } else {
+              prefixedProperties.WebkitBoxDirection = 'normal';
+            }
+            if (includes(val, 'row')) {
+              prefixedProperties.WebkitBoxOrient = prefixedProperties.boxOrient = 'horizontal';
+            } else if (includes(val, 'column')) {
+              prefixedProperties.WebkitBoxOrient = 'vertical';
+            }
+            break;
+          case 'alignSelf':
+            prefixedProperties.msFlexItemAlign = valWithoutFlex();break;
+          case 'alignItems':
+            prefixedProperties.WebkitBoxAlign = prefixedProperties.msFlexAlign = valWithoutFlex();break;
+          case 'alignContent':
+            if (val === 'spaceAround') {
+              prefixedProperties.msFlexLinePack = 'distribute';
+            } else if (val === 'spaceBetween') {
+              prefixedProperties.msFlexLinePack = 'justify';
+            } else {
+              prefixedProperties.msFlexLinePack = valWithoutFlex();
+            }
+            break;
+          case 'justifyContent':
+            if (val === 'spaceAround') {
+              prefixedProperties.msFlexPack = 'distribute';
+            } else if (val === 'spaceBetween') {
+              prefixedProperties.WebkitBoxPack = prefixedProperties.msFlexPack = 'justify';
+            } else {
+              prefixedProperties.WebkitBoxPack = prefixedProperties.msFlexPack = valWithoutFlex();
+            }
+            break;
+          case 'flexBasis':
+            prefixedProperties.msFlexPreferredSize = val;break;
+          case 'order':
+            prefixedProperties.msFlexOrder = '-moz-calc(' + val + ')'; //ugly hack to prevent react from adding 'px'
+            prefixedProperties.WebkitBoxOrdinalGroup = '-webkit-calc(' + (parseInt(val) + 1) + ')'; //this might not work for browsers who don't support calc
+            break;
+          case 'flexGrow':
+            prefixedProperties.WebkitBoxFlex = prefixedProperties.msFlexPositive = val;break;
+          case 'flexShrink':
+            prefixedProperties.msFlexNegative = val;break;
+          case 'flex':
+            prefixedProperties.WebkitBoxFlex = val;break;
+        }
+      }
+
+      _Object$assign(styleObj, prefixedProperties);
+    }
+
+    //if valueWithPrefixes were not added before
+    _Object$keys(allPrefixedCssValues).forEach(function (cssKey) {
+      composePrefixedValues(allPrefixedCssValues[cssKey]);
+    });
+    return styleObj;
+  }
+
+  function autoPrefixer(obj, allVendors) {
+    _Object$keys(obj).forEach(function (key) {
+      var val = obj[key];
+      if (typeof val === 'object') {
+        autoPrefixer(val, allVendors); //recursion for nested objects
+      } else {
+          obj = checkAndAddPrefix(obj, key, val, allVendors);
+        }
+    });
+    return obj;
+  }
+
+  function gate(objOrBool) {
+    var optionalBoolean = arguments.length <= 1 || arguments[1] === undefined ? false : arguments[1];
+
+    if (typeof objOrBool === 'boolean') {
+      return function (obj) {
+        return autoPrefixer(obj, objOrBool);
+      };
+    }
+    if (!objOrBool) {
+      return {};
+    } else {
+      return autoPrefixer(objOrBool, optionalBoolean);
+    } // default: don't include all browsers
+  }
+
+  module.exports = gate;
+});
+//# sourceMappingURL=react-inline-auto-prefixer.js.map

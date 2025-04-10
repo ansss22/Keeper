@@ -10,7 +10,11 @@ function Note(props) {
     <div className="note">
       <h1>{props.title}</h1>
       <p>{props.content}</p>
-      <button onClick={handleClick}>
+      <button 
+        onClick={handleClick}
+        className="delete-button"
+        aria-label="Delete note"
+      >
         <DeleteIcon />
       </button>
     </div>

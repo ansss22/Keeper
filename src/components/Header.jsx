@@ -1,12 +1,12 @@
 import React from "react";
-import HighlightIcon from "@mui/icons-material/Highlight";
+import NoteAltIcon from "@mui/icons-material/NoteAlt";
 
 function Header() {
   return (
-    <header>
+    <header className="header">
       <h1>
-        <HighlightIcon />
-        Keeper
+        <NoteAltIcon fontSize="large" />
+        Keppr
       </h1>
     </header>
   );
